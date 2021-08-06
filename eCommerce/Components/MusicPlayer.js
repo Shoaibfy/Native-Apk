@@ -128,7 +128,7 @@ const MusicPlayer = () => {
           </TouchableOpacity>
           <TouchableOpacity onPress={skipForward}>
             <Iconicons
-              name="play-skip-forward-outline"
+              name="plimport { createBottomTabNavigator } from '@react-navigation/bottom-tabs';y-skip-forward-outline"
               size={30}
               color="#777777"
             />
