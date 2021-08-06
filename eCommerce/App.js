@@ -1,14 +1,13 @@
 import React from 'react';
 import {View, Text, StatusBar} from 'react-native';
-import Map from './Components/Map';
-import MusicPlayer from './Components/MusicPlayer';
+import {NavigationContainer} from '@react-navigation/native';
+import Tabs from './navigation/tabs';
 
 const App = () => {
   return (
-    <View>
-      <StatusBar barStyle="light-content" />
-      <MusicPlayer />
-    </View>
+    <NavigationContainer>
+      <Tabs />
+    </NavigationContainer>
   );
 };
 
