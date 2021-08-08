@@ -35,11 +35,19 @@ class HomeScreen extends Component {
           </CopilotStep>
         </View>
         <View>
-          <CopilotStep text="This is a heaven" order={2} name="hello2">
-            <CopilotText>Heaven !</CopilotText>
+          <CopilotStep text="Three" order={3} name="hello3">
+            <CopilotText>Heaven 3 !</CopilotText>
           </CopilotStep>
         </View>
-        <Switch onValueChange={this.state.secondStepActive} />
+        <View>
+          <CopilotStep
+            text="This is two step"
+            order={2}
+            name="hello2"
+            style={{width: '100%'}}>
+            <WopilotText source={require('../Images/home.png')} />
+          </CopilotStep>
+        </View>
       </View>
     );
   }
