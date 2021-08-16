@@ -12,8 +12,9 @@ import {
 import Iconicons from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
 import songs from '../models/data';
+import {NavigationEvents} from 'react-navigation';
 
-const MusicPlayer = () => {
+const MusicPlayer = ({navigation: {navigate}}) => {
   const {width, height} = Dimensions.get('window');
   const [songIndex, setSongIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -23,7 +24,16 @@ const MusicPlayer = () => {
       <Animated.View
         style={{width: width, justifyContent: 'center', alignItems: 'center'}}>
         <View style={{width: 350, height: 300, margin: 5}}>
-          <Image source={item.image} style={{width: '100%', padding: 100}} />
+          <Image
+            source={item.image}
+            style={{
+              width: '80%',
+              margin: 10,
+              padding: 20,
+              resizeMode: 'cover',
+              borderRadius: 20,
+            }}
+          />
         </View>
       </Animated.View>
     );
@@ -128,7 +138,7 @@ const MusicPlayer = () => {
           </TouchableOpacity>
           <TouchableOpacity onPress={skipForward}>
             <Iconicons
-              name="plimport { createBottomTabNavigator } from '@react-navigation/bottom-tabs';y-skip-forward-outline"
+              name="play-skip-forward-outline"
               size={30}
               color="#777777"
             />
@@ -158,7 +168,7 @@ const MusicPlayer = () => {
           <TouchableOpacity onPress={() => {}}>
             <Iconicons name="share-outline" size={30} color="#777777" />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => navigate('Screen1')}>
             <Iconicons name="ellipsis-horizontal" size={30} color="#777777" />
           </TouchableOpacity>
         </View>

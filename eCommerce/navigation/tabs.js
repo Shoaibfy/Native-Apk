@@ -1,4 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import Map from '../Components/Map';
 import MusicPlayer from '../Components/MusicPlayer';
 import React from 'react';
@@ -13,23 +16,54 @@ import {
   SecondScreenNavigator,
   ThirdScreenNavigator,
 } from '../CustomNavigation';
+import CopilotScreen from '../Components/CopilotScreen';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 const Tabs = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        labelStyle: {
-          fontSize: 12,
-          color: 'skyblue',
-        },
-        activeTintColor: 'skyblue',
-      }}>
-      <Tab.Screen name={'Screen'} component={FirstScreenNavigator} />
-      <Tab.Screen name={'Copilot'} component={ImagePickerPic} />
-      <Tab.Screen name={'music'} component={MusicPlayer} />
-      <Tab.Screen name={'map'} component={Map} />
+      initialRouteName="Feed"
+      activeColor="blue"
+      barStyle={{backgroundColor: 'skyblue'}}>
+      <Tab.Screen
+        name="Feed"
+        component={SecondScreenNavigator}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color}) => <Icon name="home" color={color} size={26} />,
+        }}
+      />
+      <Tab.Screen
+        name="Notifications"
+        component={FirstScreenNavigator}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({color}) => <Icon name="bell" color={color} size={26} />,
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={MusicPlayer}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color}) => (
+            <Icon name="account" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="About"
+        component={CopilotScreen}
+        options={{
+          tabBarLabel: 'About',
+          tabBarIcon: ({color}) => (
+            <Icon name="message" color={color} size={26} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
