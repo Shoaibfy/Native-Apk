@@ -3,13 +3,16 @@ import {Text, TouchableOpacity, View} from 'react-native';
 
 class Screen1 extends Component {
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View>
         <Text> Screen 1 </Text>
         <TouchableOpacity
-          onPress={this.props.navigation.navigate('NestedScreen', {
-            msg: 'message from Screen1',
-          })}>
+          onPress={() =>
+            navigate('NestedScreen', {
+              msg: 'message from Screen1',
+            })
+          }>
           <Text
             style={{
               backgroundColor: 'yellow',
