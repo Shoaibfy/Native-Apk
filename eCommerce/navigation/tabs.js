@@ -8,14 +8,26 @@ import ImageScreen from '../Components/ImageScreen';
 import ImageCrop from '../Components/ImageCrop';
 import ImagePickerPic from '../Components/ImagePickerPic';
 import MyStack from '../Components/HomeStack';
+import {
+  FirstScreenNavigator,
+  SecondScreenNavigator,
+  ThirdScreenNavigator,
+} from '../CustomNavigation';
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name={'ImagePickerPic'} component={ImagePickerPic} />
-      <Tab.Screen name={'Copilot'} component={MyStack} />
+    <Tab.Navigator
+      tabBarOptions={{
+        labelStyle: {
+          fontSize: 12,
+          color: 'skyblue',
+        },
+        activeTintColor: 'skyblue',
+      }}>
+      <Tab.Screen name={'Screen1'} component={FirstScreenNavigator} />
+      <Tab.Screen name={'Copilot'} component={SecondScreenNavigator} />
       <Tab.Screen name={'music'} component={MusicPlayer} />
       <Tab.Screen name={'map'} component={Map} />
     </Tab.Navigator>
