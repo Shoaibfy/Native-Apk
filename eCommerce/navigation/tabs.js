@@ -27,7 +27,7 @@ const Tabs = () => {
         activeTintColor: 'skyblue',
       }}>
       <Tab.Screen name={'Screen1'} component={FirstScreenNavigator} />
-      <Tab.Screen name={'Copilot'} component={SecondScreenNavigator} />
+      <Tab.Screen name={'Copilot'} component={ImagePickerPic} />
       <Tab.Screen name={'music'} component={MusicPlayer} />
       <Tab.Screen name={'map'} component={Map} />
     </Tab.Navigator>
